@@ -9,6 +9,9 @@ import {
 // import { CardDescription } from "../components/CardDescription";
 import styles from "../styles/styles.module.css";
 
+import { response, response2 } from "./../../api";
+
+import { CardItems } from "../interfaces/interfaces";
 const items = {
   id: "1",
   title: "Estado del pedido",
@@ -37,13 +40,39 @@ const items3 = {
       No me ha llegado`,
   dynamicComponentSons: [
     <CardImage />,
-    <CardTitle title="nuevo" />,
+    <CardTitle />,
     <CardDescription />,
-    <CardButtons />,
+    // <CardButtons />,
   ],
 };
 
 export const Page = () => {
+  const resp = () => {
+    try {
+      const respuesta = JSON.parse(response2);
+      // console.log(respuesta);
+
+      return respuesta;
+    } catch (err) {
+      console.log(err);
+      // return items2;
+    }
+  };
+
+  const x: any = resp();
+  // console.log(x[0]);
+  // const DynamicSons = () => {
+  //   try {
+  //     let son: any;
+  //     response.forEach((item) => {
+  //       // console.log(JSON.parse(item.dynamicComponentSons.replace("`", "")));
+  //       console.log(item.dynamicComponentSons);
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
   return (
     <div>
       <h1>CencoDemo - HOC - Compund Component Pattern </h1>
@@ -57,7 +86,12 @@ export const Page = () => {
         }}
       >
         <Card cardItems={items}>
-          <CardImage />
+          <CardImage
+            style={{
+              boxShadow: " rgba(0,0,0,0.2)",
+              width: "200px",
+            }}
+          />
           <CardTitle />
           <CardDescription />
         </Card>
@@ -73,9 +107,13 @@ export const Page = () => {
 
         <br></br>
 
-        <Card cardItems={items3} className={items.className}>
+        <Card cardItems={x[0]}>
           <BSonsComponent />
         </Card>
+
+        {/* <Card cardItems={resp()} className={items.className}>
+          <BSonsComponent />
+        </Card> */}
       </div>
     </div>
   );

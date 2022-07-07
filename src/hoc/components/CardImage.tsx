@@ -7,9 +7,11 @@ import noImage from "../assets/no_image.jpeg";
 export const CardImage = ({
   img = "",
   className,
+  style,
 }: {
   img?: any;
   className?: string;
+  style?: React.CSSProperties;
 }) => {
   const { cardItems } = useContext(ProductContext);
   let imgToShow: string;
@@ -23,7 +25,7 @@ export const CardImage = ({
   }
 
   return (
-    <div className={`${className}`}>
+    <div className={`${className}`} style={style}>
       <img className={`${styles.cardImg} `} src={imgToShow} alt="Product" />
     </div>
   );
