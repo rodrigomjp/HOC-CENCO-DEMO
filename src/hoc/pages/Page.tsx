@@ -11,7 +11,7 @@ import styles from "../styles/styles.module.css";
 
 import { response, response2 } from "./../../api";
 
-import { CardItems } from "../interfaces/interfaces";
+import { ComponentDemo } from "../components/ComponentDemo";
 const items = {
   id: "1",
   title: "Estado del pedido",
@@ -111,6 +111,7 @@ export const Page = () => {
           <BSonsComponent />
         </Card>
 
+        <ComponentDemo />
         {/* <Card cardItems={resp()} className={items.className}>
           <BSonsComponent />
         </Card> */}
