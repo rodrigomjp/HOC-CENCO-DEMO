@@ -1,6 +1,4 @@
-import React from "react";
-
-import logo from "../logo.svg";
+import './App.scss';
 import { Page } from "./hoc/pages/Page";
 
 function App() {
