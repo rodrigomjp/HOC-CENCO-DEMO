@@ -1,4 +1,6 @@
 import { useCard } from "../hooks/useCard";
+import { Button } from '@library/cenco-ux-components/layout';
+
 
 export const CardButtons = ({
   className,
@@ -14,7 +16,7 @@ export const CardButtons = ({
   return (
     <div className={`${className}`} style={style}>
       <p>Botón demo </p>
-      <button onClick={() => onMyClick()}>Botón</button>
+      <Button variant="secondary" onClick={() => onMyClick()}>Botón</Button>
       <p>Click número {counterClick}</p>
     </div>
   );
