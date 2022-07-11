@@ -15,6 +15,7 @@ export const response = [
   },
 ];
 
+// style={{ color: 'red', textAlign: 'center' }}
 export const response2 = `
 [
     {

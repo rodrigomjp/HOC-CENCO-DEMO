@@ -18,16 +18,7 @@ export const Card = ({ children, cardItems, className }: CardProps) => {
         addCounterClick,
       }}
     >
-      <section className={className}>
-        {children}
-        {/* {cardItems?.dynamicComponentSons ? (
-          <>
-           
-          </>
-        ) : (
-          <div className={`${styles.card}`}>{children}</div>
-        )} */}
-      </section>
+      <section className={className}>{children}</section>
     </Provider>
   );
 };

@@ -8,10 +8,10 @@ import {
 } from "../components";
 // import { CardDescription } from "../components/CardDescription";
 import styles from "../styles/styles.module.css";
+import { response2 } from "./../../api";
+// import { } from "react-router"
 
-import { response, response2 } from "./../../api";
-
-import { ComponentDemo } from "../components/ComponentDemo";
+import { DynamicComponentSons } from "../components/DynamicComponentSons";
 const items = {
   id: "1",
   title: "Estado del pedido",
@@ -19,7 +19,7 @@ const items = {
   desc: `Seguimiento de compra
   Recuperar boleta
   Cambiar datos de quien retira`,
-  className: `${styles.FlexContainer}`,
+  // className: `${styles.FlexContainer}`,
 };
 
 const items2 = {
@@ -50,32 +50,22 @@ export const Page = () => {
   const resp = () => {
     try {
       const respuesta = JSON.parse(response2);
-      // console.log(respuesta);
-
       return respuesta;
     } catch (err) {
       console.log(err);
-      // return items2;
     }
   };
 
   const x: any = resp();
-  // console.log(x[0]);
-  // const DynamicSons = () => {
-  //   try {
-  //     let son: any;
-  //     response.forEach((item) => {
-  //       // console.log(JSON.parse(item.dynamicComponentSons.replace("`", "")));
-  //       console.log(item.dynamicComponentSons);
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   return (
     <div>
       <h1>CencoDemo - HOC - Compund Component Pattern </h1>
+
+      <br />
+
+      <br />
+      <br />
       <hr />
 
       <div
@@ -85,36 +75,30 @@ export const Page = () => {
           flexWrap: "wrap",
         }}
       >
+        {/* className={styles.FlexContainer} 
+        style={{ color: "red", textAlign: "center" }}
+        
+        */}
+
         <Card cardItems={items}>
-          <CardImage
-            style={{
-              boxShadow: " rgba(0,0,0,0.2)",
-              width: "200px",
-            }}
-          />
+          <CardImage style={{ imageOrientation: "revert" }} />
           <CardTitle />
           <CardDescription />
         </Card>
-
         <br></br>
-
         <Card cardItems={items2}>
           <CardTitle />
           <CardImage />
           <CardDescription />
           <CardButtons />
         </Card>
-
         <br></br>
-
-        <Card cardItems={x[0]}>
+        <Card cardItems={items3}>
           <BSonsComponent />
         </Card>
-
-        <ComponentDemo />
-        {/* <Card cardItems={resp()} className={items.className}>
-          <BSonsComponent />
-        </Card> */}
+        <Card cardItems={x[0]}>
+          <DynamicComponentSons />
+        </Card>
       </div>
     </div>
   );
