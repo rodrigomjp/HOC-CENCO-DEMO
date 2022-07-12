@@ -11,7 +11,6 @@ import {
 export const DynamicComponentSons = () => {
   const { cardItems } = useContext(ProductContext);
   const item = JSON.parse(JSON.stringify(cardItems));
-  console.log(item?.dynamicComponentSons);
 
   let childObject = "";
   item?.dynamicComponentSons.forEach((childComponent) => {

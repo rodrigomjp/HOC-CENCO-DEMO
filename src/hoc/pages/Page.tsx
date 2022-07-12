@@ -6,21 +6,11 @@ import {
   CardButtons,
   BSonsComponent,
 } from "../components";
-// import { CardDescription } from "../components/CardDescription";
+
 import styles from "../styles/styles.module.css";
 import { response2 } from "./../../api";
-// import { } from "react-router"
 
 import { DynamicComponentSons } from "../components/DynamicComponentSons";
-const items = {
-  id: "1",
-  title: "Estado del pedido",
-  img: "./logo.png",
-  desc: `Seguimiento de compra
-  Recuperar boleta
-  Cambiar datos de quien retira`,
-  // className: `${styles.FlexContainer}`,
-};
 
 const items2 = {
   id: "2",
@@ -77,25 +67,41 @@ export const Page = () => {
       >
         {/* className={styles.FlexContainer} 
         style={{ color: "red", textAlign: "center" }}
-        
+        style={{ width: "180px", fontSize: "20px" }}
         */}
 
-        <Card cardItems={items}>
-          <CardImage style={{ imageOrientation: "revert" }} />
-          <CardTitle />
-          <CardDescription />
-        </Card>
-        <br></br>
+        {/* 
+            Solución 1 
+            Descripción: Agregar o quitar componentes hijos de forma
+            manuel
+        
+        */}
         <Card cardItems={items2}>
-          <CardTitle />
           <CardImage />
+          <CardTitle />
           <CardDescription />
           <CardButtons />
         </Card>
         <br></br>
+        {/* 
+            Solución 2 
+            Descripción: Agregar o quitar componentes hijos por
+            configuración local.
+            dynamicComponentSons se le pasa los hijos y BSonsComponent
+            se encarga de desplegarlos.
+        
+        */}
         <Card cardItems={items3}>
           <BSonsComponent />
         </Card>
+        {/* 
+            Solución 3 
+            Descripción: Agregar o quitar componentes hijos por
+            configuración dinamica, mediante base de datos.
+            dynamicComponentSons se le pasa los hijos y DynamicComponentSons
+            se encarga de desplegarlos.
+        
+        */}
         <Card cardItems={x[0]}>
           <DynamicComponentSons />
         </Card>
