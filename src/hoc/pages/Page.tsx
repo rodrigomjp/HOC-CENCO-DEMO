@@ -8,9 +8,12 @@ import {
 } from "../components";
 
 import styles from "../styles/styles.module.css";
-import { response2 } from "./../../api";
+import { response2, response3 } from "./../../api";
 
 import { DynamicComponentSons } from "../components/DynamicComponentSons";
+import { Sons } from "../components/Sons";
+import { Cousin } from "../components/Cousin";
+import { DynamicComponentSonsV2 } from "../components/DynamicComponentSonsV2";
 
 const items2 = {
   id: "2",
@@ -32,7 +35,7 @@ const items3 = {
     <CardImage />,
     <CardTitle />,
     <CardDescription />,
-    // <CardButtons />,
+    <CardButtons />,
   ],
 };
 
@@ -42,11 +45,22 @@ export const Page = () => {
       const respuesta = JSON.parse(response2);
       return respuesta;
     } catch (err) {
-      console.log(err);
+      return <></>;
+    }
+  };
+  const resp2 = () => {
+    try {
+      const respuesta = JSON.parse(response3);
+      // console.log(respuesta[0]);
+      return respuesta;
+    } catch (err) {
+      console.log("error fatal");
     }
   };
 
   const x: any = resp();
+  const y: any = resp2();
+  // console.log(JSON.parse(y)[0]);
 
   return (
     <div>
@@ -73,15 +87,19 @@ export const Page = () => {
         {/* 
             Solución 1 
             Descripción: Agregar o quitar componentes hijos de forma
-            manuel
+            manual
         
         */}
-        <Card cardItems={items2}>
+        {/* <Card cardItems={items2}>
           <CardImage />
-          <CardTitle />
+          <CardTitle
+            title="Nuevo titulo"
+            style={{ color: "red", fontSize: "20px" }}
+          />
           <CardDescription />
           <CardButtons />
-        </Card>
+          <Sons cousin={<Cousin />} />
+        </Card> */}
         <br></br>
         {/* 
             Solución 2 
@@ -91,9 +109,9 @@ export const Page = () => {
             se encarga de desplegarlos.
         
         */}
-        <Card cardItems={items3}>
+        {/* <Card cardItems={items3}>
           <BSonsComponent />
-        </Card>
+        </Card> */}
         {/* 
             Solución 3 
             Descripción: Agregar o quitar componentes hijos por
@@ -102,8 +120,23 @@ export const Page = () => {
             se encarga de desplegarlos.
         
         */}
-        <Card cardItems={x[0]}>
+        {/* <Card cardItems={x[0]}>
           <DynamicComponentSons />
+        </Card> */}
+
+        {/* <Card cardItems={x[0]}>
+          <DynamicComponentSons />
+        </Card> */}
+        {/* 
+            Solución 4 
+            Descripción: Agregar o quitar componentes hijos por
+            configuración dinamica, mediante base de datos.
+            dynamicComponentSonsV2 se le pasa los hijos y el hook useDisplayComponent
+            se encarga de desplegarlos.
+        
+        */}
+        <Card cardItems={y[0]}>
+          <DynamicComponentSonsV2 />
         </Card>
       </div>
     </div>
