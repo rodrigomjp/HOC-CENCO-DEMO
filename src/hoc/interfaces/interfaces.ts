@@ -13,6 +13,8 @@ export interface CardItems {
   desc?: string;
   dynamicComponentSons?: ReactElement | ReactElement[];
   className?: string;
+  dynamicComponentSons2?: any;
+  cousin?: any;
 }
 
 export interface CardContextProps {

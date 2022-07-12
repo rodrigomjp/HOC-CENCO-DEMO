@@ -6,21 +6,14 @@ import {
   CardButtons,
   BSonsComponent,
 } from "../components";
-// import { CardDescription } from "../components/CardDescription";
+
 import styles from "../styles/styles.module.css";
+import { response2, response3 } from "./../../api";
 
-import { response, response2 } from "./../../api";
-
-import { CardItems } from "../interfaces/interfaces";
-const items = {
-  id: "1",
-  title: "Estado del pedido",
-  img: "./logo.png",
-  desc: `Seguimiento de compra
-  Recuperar boleta
-  Cambiar datos de quien retira`,
-  className: `${styles.FlexContainer}`,
-};
+import { DynamicComponentSons } from "../components/DynamicComponentSons";
+import { Sons } from "../components/Sons";
+import { Cousin } from "../components/Cousin";
+import { DynamicComponentSonsV2 } from "../components/DynamicComponentSonsV2";
 
 const items2 = {
   id: "2",
@@ -42,7 +35,7 @@ const items3 = {
     <CardImage />,
     <CardTitle />,
     <CardDescription />,
-    // <CardButtons />,
+    <CardButtons />,
   ],
 };
 
@@ -50,32 +43,33 @@ export const Page = () => {
   const resp = () => {
     try {
       const respuesta = JSON.parse(response2);
-      // console.log(respuesta);
-
       return respuesta;
     } catch (err) {
-      console.log(err);
-      // return items2;
+      return <></>;
+    }
+  };
+  const resp2 = () => {
+    try {
+      const respuesta = JSON.parse(response3);
+      // console.log(respuesta[0]);
+      return respuesta;
+    } catch (err) {
+      console.log("error fatal");
     }
   };
 
   const x: any = resp();
-  // console.log(x[0]);
-  // const DynamicSons = () => {
-  //   try {
-  //     let son: any;
-  //     response.forEach((item) => {
-  //       // console.log(JSON.parse(item.dynamicComponentSons.replace("`", "")));
-  //       console.log(item.dynamicComponentSons);
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const y: any = resp2();
+  // console.log(JSON.parse(y)[0]);
 
   return (
     <div>
       <h1>CencoDemo - HOC - Compund Component Pattern </h1>
+
+      <br />
+
+      <br />
+      <br />
       <hr />
 
       <div
@@ -85,35 +79,65 @@ export const Page = () => {
           flexWrap: "wrap",
         }}
       >
-        <Card cardItems={items}>
-          <CardImage
-            style={{
-              boxShadow: " rgba(0,0,0,0.2)",
-              width: "200px",
-            }}
-          />
-          <CardTitle />
-          <CardDescription />
-        </Card>
+        {/* className={styles.FlexContainer} 
+        style={{ color: "red", textAlign: "center" }}
+        style={{ width: "180px", fontSize: "20px" }}
+        */}
 
-        <br></br>
-
-        <Card cardItems={items2}>
-          <CardTitle />
+        {/* 
+            Solución 1 
+            Descripción: Agregar o quitar componentes hijos de forma
+            manual
+        
+        */}
+        {/* <Card cardItems={items2}>
           <CardImage />
+          <CardTitle
+            title="Nuevo titulo"
+            style={{ color: "red", fontSize: "20px" }}
+          />
           <CardDescription />
           <CardButtons />
-        </Card>
-
+          <Sons cousin={<Cousin />} />
+        </Card> */}
         <br></br>
-
-        <Card cardItems={x[0]}>
-          <BSonsComponent />
-        </Card>
-
-        {/* <Card cardItems={resp()} className={items.className}>
+        {/* 
+            Solución 2 
+            Descripción: Agregar o quitar componentes hijos por
+            configuración local.
+            dynamicComponentSons se le pasa los hijos y BSonsComponent
+            se encarga de desplegarlos.
+        
+        */}
+        {/* <Card cardItems={items3}>
           <BSonsComponent />
         </Card> */}
+        {/* 
+            Solución 3 
+            Descripción: Agregar o quitar componentes hijos por
+            configuración dinamica, mediante base de datos.
+            dynamicComponentSons se le pasa los hijos y DynamicComponentSons
+            se encarga de desplegarlos.
+        
+        */}
+        {/* <Card cardItems={x[0]}>
+          <DynamicComponentSons />
+        </Card> */}
+
+        {/* <Card cardItems={x[0]}>
+          <DynamicComponentSons />
+        </Card> */}
+        {/* 
+            Solución 4 
+            Descripción: Agregar o quitar componentes hijos por
+            configuración dinamica, mediante base de datos.
+            dynamicComponentSonsV2 se le pasa los hijos y el hook useDisplayComponent
+            se encarga de desplegarlos.
+        
+        */}
+        <Card cardItems={y[0]}>
+          <DynamicComponentSonsV2 />
+        </Card>
       </div>
     </div>
   );

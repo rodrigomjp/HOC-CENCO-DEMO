@@ -15,10 +15,10 @@ export const CardTitle = ({
   const { cardItems } = useContext(ProductContext);
 
   return (
-    <div className={`${className}`} style={style}>
-      <span className={`${styles.cardTitle}`}>
-        {title ? title : cardItems.title}
-      </span>
+    <div className={`${styles.cardTitle} ${className}`} style={style}>
+      {/* <span className={`${styles.cardTitle}`}> */}
+      {title ? title : cardItems.title}
+      {/* </span> */}
     </div>
   );
 };
