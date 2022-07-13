@@ -20,7 +20,6 @@ export const Sons = ({ cousin }: any) => {
 
     let reactElement: React.ReactElement[] = [];
     sons?.forEach((element: IdynamicCompSons2) => {
-      console.log(element);
       reactElement.push(CreateSon(element));
     });
 

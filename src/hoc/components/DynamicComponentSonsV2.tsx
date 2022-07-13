@@ -29,7 +29,6 @@ export const DynamicComponentSonsV2 = () => {
 
     let reactElement: React.ReactElement[] = [];
     sons?.forEach((element: IdynamicCompSons2) => {
-      console.log(element);
       reactElement.push(CreateSon(element));
     });
 

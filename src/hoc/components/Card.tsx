@@ -1,11 +1,11 @@
 import { createContext } from "react";
 import { useCard } from "../hooks/useCard";
-import { CardContextProps, CardProps } from "../interfaces/interfaces";
+import { ICardContextProps, ICardProps } from "../interfaces/interfaces";
 
-export const ProductContext = createContext({} as CardContextProps);
+export const ProductContext = createContext({} as ICardContextProps);
 const { Provider } = ProductContext;
 
-export const Card = ({ children, cardItems, className }: CardProps) => {
+export const Card = ({ children, cardItems, className }: ICardProps) => {
   const { counterClick, addCounterClick } = useCard();
   return (
     <Provider

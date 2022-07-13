@@ -11,8 +11,8 @@ import styles from "../styles/styles.module.css";
 import { response2, response3 } from "./../../api";
 
 import { DynamicComponentSons } from "../components/DynamicComponentSons";
-import { Sons } from "../components/Sons";
-import { Cousin } from "../components/Cousin";
+// import { Sons } from "../components/Sons";
+// import { Cousin } from "../components/Cousin";
 import { DynamicComponentSonsV2 } from "../components/DynamicComponentSonsV2";
 
 const items2 = {
@@ -51,7 +51,6 @@ export const Page = () => {
   const resp2 = () => {
     try {
       const respuesta = JSON.parse(response3);
-      // console.log(respuesta[0]);
       return respuesta;
     } catch (err) {
       console.log("error fatal");
@@ -60,11 +59,10 @@ export const Page = () => {
 
   const x: any = resp();
   const y: any = resp2();
-  // console.log(JSON.parse(y)[0]);
 
   return (
     <div>
-      <h1>CencoDemo - HOC - Compund Component Pattern </h1>
+      <h1>CencoDemo - FHOC - Compund Component Pattern </h1>
 
       <br />
 
@@ -90,7 +88,7 @@ export const Page = () => {
             manual
         
         */}
-        {/* <Card cardItems={items2}>
+        <Card cardItems={items2}>
           <CardImage />
           <CardTitle
             title="Nuevo titulo"
@@ -98,8 +96,7 @@ export const Page = () => {
           />
           <CardDescription />
           <CardButtons />
-          <Sons cousin={<Cousin />} />
-        </Card> */}
+        </Card>
         <br></br>
         {/* 
             Solución 2 
@@ -109,9 +106,9 @@ export const Page = () => {
             se encarga de desplegarlos.
         
         */}
-        {/* <Card cardItems={items3}>
+        <Card cardItems={items3}>
           <BSonsComponent />
-        </Card> */}
+        </Card>
         {/* 
             Solución 3 
             Descripción: Agregar o quitar componentes hijos por
@@ -120,13 +117,10 @@ export const Page = () => {
             se encarga de desplegarlos.
         
         */}
-        {/* <Card cardItems={x[0]}>
+        <Card cardItems={x[0]}>
           <DynamicComponentSons />
-        </Card> */}
+        </Card>
 
-        {/* <Card cardItems={x[0]}>
-          <DynamicComponentSons />
-        </Card> */}
         {/* 
             Solución 4 
             Descripción: Agregar o quitar componentes hijos por

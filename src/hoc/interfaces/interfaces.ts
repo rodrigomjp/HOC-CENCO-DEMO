@@ -1,12 +1,12 @@
 import { ReactElement } from "react";
 
-export interface CardProps {
-  cardItems: CardItems;
+export interface ICardProps {
+  cardItems: ICardItems;
   children?: ReactElement | ReactElement[];
   className?: string;
 }
 
-export interface CardItems {
+export interface ICardItems {
   id: string;
   title: string;
   img?: string;
@@ -17,9 +17,9 @@ export interface CardItems {
   cousin?: any;
 }
 
-export interface CardContextProps {
+export interface ICardContextProps {
   counterClick: number;
-  cardItems: CardItems;
+  cardItems: ICardItems;
   addCounterClick: (value: number) => void;
   className?: string;
   style?: React.CSSProperties;

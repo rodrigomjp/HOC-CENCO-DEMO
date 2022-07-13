@@ -9,7 +9,6 @@ import {
 
 export default function useDisplayComponent() {
   const CreateSon = ({ component, data, cousin }: any): any => {
-    console.log("cousin:", cousin);
     switch (component) {
       case "CardTitle":
         return <CardTitle title={data} />;
