@@ -1,8 +1,8 @@
-import './App.scss';
-import { Page } from "./hoc/pages/Page";
+import "./App.scss";
+import { PageProducts } from "./hoc/pages/PageProducts";
 
 function App() {
-  return <Page></Page>;
+  return <PageProducts />;
 }
 
 export default App;

@@ -5,8 +5,8 @@ export const Cousin = () => {
   const { cardItems } = useContext(ProductContext);
   return (
     <>
-      <h2>I'm Caousin</h2>
-      <h3>Information of phather {cardItems.title}</h3>
+      <h2>I'm Cousin</h2>
+      <h3>Information of father {cardItems.title}</h3>
     </>
   );
 };
