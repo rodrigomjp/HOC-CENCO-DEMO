@@ -44,7 +44,7 @@ export default function useProducts() {
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
-      const bandera = "paris";
+      const bandera = "new";
       const env = {
         jumbo: {
           url: "https://run.mocky.io/v3/15f32089-253b-4599-ab2a-765c9ef45c06",
@@ -71,14 +71,24 @@ export default function useProducts() {
           unitPrice: false,
         },
       };
+      const environment = env[bandera]
+        ? env[bandera]
+        : {
+            url: "https://run.mocky.io/v3/15f32089-253b-4599-ab2a-765c9ef45c06",
+            reason: false,
+            check: false,
+            request: false,
+            send: false,
+            unitPrice: false,
+          };
       try {
-        const response = await fetch(env[bandera].url);
+        const response = await fetch(environment.url);
         if (response.status === 200) {
           response.json().then((res: any) => {
             setProducts({
               data: res,
             });
-            setConfig(env[bandera]);
+            setConfig(environment);
           });
         }
         console.log("response " + response.status, response);
