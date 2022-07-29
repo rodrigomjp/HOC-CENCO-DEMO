@@ -3,11 +3,17 @@ import { Product } from "..";
 import useProducts, { IProduct } from "../../../hooks/useProducts";
 
 export const ProductList = () => {
-  const { products } = useProducts();
+  const { products, loading } = useProducts();
 
-  products?.data?.forEach((prod: IProduct) => {
-    return <Product {...prod}></Product>;
-  });
-  return <div>checkbox</div>;
+  return (
+    <>
+      {!loading ? (
+        products?.data?.map((prod: IProduct) => {
+          return <Product {...prod}></Product>;
+        })
+      ) : (
+        <>loading</>
+      )}
+    </>
+  );
 };
-ProductList;

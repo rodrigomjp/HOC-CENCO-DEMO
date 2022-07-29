@@ -1,5 +1,7 @@
-import React from "react";
+import { useContext } from "react";
+import { ProductContext } from "..";
 
 export const DeliveredQuantity = () => {
-  return <div>index</div>;
+  const { prod } = useContext(ProductContext);
+  return <div>Enviado: {prod.quantity}</div>;
 };

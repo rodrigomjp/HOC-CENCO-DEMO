@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ProductContext } from "..";
 
 export const Description = () => {
-  return <p>Description</p>;
+  const { prod } = useContext(ProductContext);
+  return <p>{prod.description}</p>;
 };

@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { IProduct } from "../hooks/useProducts";
 
 export interface ICardProps {
   cardItems: ICardItems;
@@ -23,4 +24,10 @@ export interface ICardContextProps {
   addCounterClick: (value: number) => void;
   className?: string;
   style?: React.CSSProperties;
+}
+
+export interface IProductContextProps {
+  prod: IProduct;
+  isChecked: boolean;
+  setIsChecked: (value: boolean) => void;
 }

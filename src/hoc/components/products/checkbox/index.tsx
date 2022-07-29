@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ProductContext } from "..";
 
 export const Checkbox = () => {
-  return <input type={"checkbox"} />;
+  const { isChecked, setIsChecked } = useContext(ProductContext);
+  return (
+    <input
+      type={"checkbox"}
+      onClick={() => {
+        setIsChecked(!isChecked);
+      }}
+    />
+  );
 };

@@ -22,14 +22,22 @@ export interface IProduct {
   dte_url: string;
   imageUrl: string;
   status: string;
+  config?: IConfig;
 }
 
+interface IConfig {
+  checkbox: boolean;
+  reason: boolean;
+}
 interface IData {
   data: IProduct[];
 }
 export default function useProducts() {
   const [products, setProducts] = useState<IData>();
+  const [config, setConfig] = useState<IConfig>();
+  const [loading, setLoading] = useState<boolean>();
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -38,16 +46,18 @@ export default function useProducts() {
         if (response.status === 200) {
           response.json().then((res: any) => {
             setProducts({
-              data: res.data,
+              data: res,
             });
           });
         }
-        console.log("response ", response);
+        console.log("response " + response.status, response);
+        setLoading(false);
       } catch (e) {
+        setLoading(false);
         console.log("fallo :C?", e);
       }
     };
     fetchData();
   }, []);
-  return { products };
+  return { products, config, setConfig, loading };
 }
