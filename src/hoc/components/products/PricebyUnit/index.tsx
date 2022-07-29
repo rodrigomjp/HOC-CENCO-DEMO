@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { ProductContext } from "..";
-import { IProduct } from "../../../hooks/useProducts";
 
 export const PriceByUnit = () => {
   const { prod } = useContext(ProductContext);

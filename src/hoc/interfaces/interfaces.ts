@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { IProduct } from "../hooks/useProducts";
+import { IConfig, IProduct } from "../hooks/useProducts";
 
 export interface ICardProps {
   cardItems: ICardItems;
@@ -30,4 +30,5 @@ export interface IProductContextProps {
   prod: IProduct;
   isChecked: boolean;
   setIsChecked: (value: boolean) => void;
+  config?: IConfig;
 }

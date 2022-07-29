@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { cancelMessage } from "../../constant";
-import { IProduct } from "../../hooks/useProducts";
+import useProducts, { IConfig, IProduct } from "../../hooks/useProducts";
 import { IProductContextProps } from "../../interfaces/interfaces";
 import { Checkbox } from "./checkbox";
 import { DeliveredQuantity } from "./deliveredQuantity";
@@ -14,11 +14,22 @@ import { RequestQuantity } from "./requestQuantity";
 
 export const ProductContext = createContext({} as IProductContextProps);
 const { Provider } = ProductContext;
-export const Product = (props: IProduct) => {
+interface IProps {
+  prod: IProduct;
+  config?: IConfig;
+}
+export const Product = (props: IProps) => {
   const [isChecked, setIsChecked] = useState(false);
   console.log("props pal provider ", props);
   return (
-    <Provider value={{ prod: props, setIsChecked, isChecked }}>
+    <Provider
+      value={{
+        prod: props.prod,
+        setIsChecked,
+        isChecked,
+        config: props.config,
+      }}
+    >
       <>
         <Checkbox></Checkbox>
         <div>
@@ -35,7 +46,7 @@ export const Product = (props: IProduct) => {
             </div>
           </div>
           <GenericMessage
-            display={props.status === "canceled"}
+            display={props.prod.status === "canceled"}
             message={cancelMessage}
             type={Types.warning}
           ></GenericMessage>

@@ -10,6 +10,7 @@ export interface IProduct {
   storeName: string;
   description: string;
   quantity: number;
+  originalQuantity?: number;
   priceByUnit: number;
   discount: number;
   lineNumber: number;
@@ -25,9 +26,13 @@ export interface IProduct {
   config?: IConfig;
 }
 
-interface IConfig {
-  checkbox: boolean;
+export interface IConfig {
+  url: string;
   reason: boolean;
+  check: boolean;
+  request: boolean;
+  send: boolean;
+  unitPrice: boolean;
 }
 interface IData {
   data: IProduct[];
@@ -39,15 +44,41 @@ export default function useProducts() {
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
+      const bandera = "paris";
+      const env = {
+        jumbo: {
+          url: "https://run.mocky.io/v3/15f32089-253b-4599-ab2a-765c9ef45c06",
+          reason: false,
+          check: true,
+          request: true,
+          send: true,
+          unitPrice: true,
+        },
+        paris: {
+          url: "https://run.mocky.io/v3/be723c8a-7213-41fe-843b-716a519b1c70",
+          reason: true,
+          check: true,
+          request: true,
+          send: false,
+          unitPrice: false,
+        },
+        new: {
+          url: "https://run.mocky.io/v3/15f32089-253b-4599-ab2a-765c9ef45c06",
+          reason: false,
+          check: false,
+          request: false,
+          send: false,
+          unitPrice: false,
+        },
+      };
       try {
-        const response = await fetch(
-          "https://run.mocky.io/v3/be723c8a-7213-41fe-843b-716a519b1c70"
-        );
+        const response = await fetch(env[bandera].url);
         if (response.status === 200) {
           response.json().then((res: any) => {
             setProducts({
               data: res,
             });
+            setConfig(env[bandera]);
           });
         }
         console.log("response " + response.status, response);
