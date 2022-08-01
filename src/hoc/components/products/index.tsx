@@ -44,17 +44,26 @@ export const Product = (props: IProps) => {
               <Brand></Brand>
               <RequestQuantity></RequestQuantity>
               <DeliveredQuantity></DeliveredQuantity>
+              {props?.config?.locationMessage === "center" && (
+                <GenericMessage
+                  display={props.prod.status === "canceled"}
+                  message={cancelMessage}
+                  type={Types.warning}
+                ></GenericMessage>
+              )}
             </div>
             <div className="right-section">
               <PriceByUnit></PriceByUnit>
               <Price></Price>
             </div>
           </div>
-          <GenericMessage
-            display={props.prod.status === "canceled"}
-            message={cancelMessage}
-            type={Types.warning}
-          ></GenericMessage>
+          {props?.config?.locationMessage === "bottom" && (
+            <GenericMessage
+              display={props.prod.status === "canceled"}
+              message={cancelMessage}
+              type={Types.warning}
+            ></GenericMessage>
+          )}
           <Reasons></Reasons>
         </div>
       </div>

@@ -33,6 +33,7 @@ export interface IConfig {
   request: boolean;
   send: boolean;
   unitPrice: boolean;
+  locationMessage: string;
 }
 interface IData {
   data: IProduct[];
@@ -44,7 +45,7 @@ export default function useProducts() {
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
-      const bandera = "jumbo";
+      const bandera = "new";
       const env = {
         jumbo: {
           url: "https://run.mocky.io/v3/15f32089-253b-4599-ab2a-765c9ef45c06",
@@ -53,6 +54,7 @@ export default function useProducts() {
           request: true,
           send: true,
           unitPrice: true,
+          locationMessage: "bottom",
         },
         paris: {
           url: "https://run.mocky.io/v3/be723c8a-7213-41fe-843b-716a519b1c70",
@@ -61,14 +63,25 @@ export default function useProducts() {
           request: true,
           send: false,
           unitPrice: false,
+          locationMessage: "bottom",
+        },
+        easy: {
+          url: "https://run.mocky.io/v3/be723c8a-7213-41fe-843b-716a519b1c70",
+          reason: true,
+          check: true,
+          request: true,
+          send: false,
+          unitPrice: false,
+          locationMessage: "center",
         },
         new: {
-          url: "https://run.mocky.io/v3/15f32089-253b-4599-ab2a-765c9ef45c06",
+          url: "https://run.mocky.io/v3/be723c8a-7213-41fe-843b-716a519b1c70",
           reason: false,
           check: false,
           request: false,
           send: false,
           unitPrice: false,
+          locationMessage: "",
         },
       };
       const environment = env[bandera]
@@ -80,6 +93,7 @@ export default function useProducts() {
             request: false,
             send: false,
             unitPrice: false,
+            locationMessage: "",
           };
       try {
         const response = await fetch(environment.url);
