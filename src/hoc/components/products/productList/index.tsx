@@ -4,7 +4,6 @@ import useProducts, { IProduct } from "../../../hooks/useProducts";
 
 export const ProductList = () => {
   const { products, loading, config } = useProducts();
-  console.log("products ", products);
   return (
     <>
       {!loading ? (

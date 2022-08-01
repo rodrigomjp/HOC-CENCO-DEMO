@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { ProductContext } from "..";
 
 export const Reasons = () => {
-  const { isChecked } = useContext(ProductContext);
-  return isChecked ? (
+  const { isChecked, config } = useContext(ProductContext);
+  return isChecked && config?.reason ? (
     <>
       <p>¿Puedes elegir el motivo?</p>
       <select>
