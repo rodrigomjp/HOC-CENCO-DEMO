@@ -7,6 +7,7 @@ export const Reasons = () => {
     <>
       <p>¿Puedes elegir el motivo?</p>
       <select>
+        <option>seleccione...</option>
         <option>No me gusto</option>
         <option>Lo encontré mas barato en otro lugar</option>
         <option>No quiero informar</option>

@@ -1,0 +1,31 @@
+.product {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 25px;
+
+  .second-section {
+    display: flex;
+    flex-direction: row;
+  }
+  .right-section {
+    display: flex;
+    align-self: flex-end;
+  }
+
+  .checkbox {
+    flex-direction: column;
+    align-items: center;
+  }
+  .second-section {
+    padding-left: 25px;
+    display: flex;
+    flex-direction: row;
+  }
+  .right-section {
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+  }
+}

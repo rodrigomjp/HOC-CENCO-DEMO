@@ -28,17 +28,14 @@ export const PageProducts = () => {
     <div>
       <h1>CencoDemo - FHOC - Compund Component Pattern </h1>
 
-      <br />
-
-      <br />
-      <br />
-      <hr />
+      <hr></hr>
 
       <div
         style={{
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
+          width: "100%",
         }}
       >
         {/* <Product /> */}

@@ -1,7 +1,7 @@
-import React from "react";
-import { IProduct } from "../../../hooks/useProducts";
+import React, { useContext } from "react";
+import { ProductContext } from "..";
 
-export const Brand = (props: IProduct) => {
-  const { brandName } = props;
-  return <div>{brandName}</div>;
+export const Brand = () => {
+  const { prod } = useContext(ProductContext);
+  return <p>{prod.brandName}</p>;
 };

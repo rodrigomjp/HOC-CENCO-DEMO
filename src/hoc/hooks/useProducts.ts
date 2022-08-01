@@ -44,7 +44,7 @@ export default function useProducts() {
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
-      const bandera = "paris";
+      const bandera = "jumbo";
       const env = {
         jumbo: {
           url: "https://run.mocky.io/v3/15f32089-253b-4599-ab2a-765c9ef45c06",

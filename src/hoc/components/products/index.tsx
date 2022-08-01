@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { cancelMessage } from "../../constant";
 import { IConfig, IProduct } from "../../hooks/useProducts";
 import { IProductContextProps } from "../../interfaces/interfaces";
+import { Brand } from "./brand";
 import { CheckboxProduct } from "./checkbox";
 import { DeliveredQuantity } from "./deliveredQuantity";
 import { Description } from "./description";
@@ -11,6 +12,7 @@ import { Price } from "./Price";
 import { PriceByUnit } from "./PricebyUnit";
 import { Reasons } from "./reasons";
 import { RequestQuantity } from "./requestQuantity";
+import "./style.scss";
 
 export const ProductContext = createContext({} as IProductContextProps);
 const { Provider } = ProductContext;
@@ -30,17 +32,20 @@ export const Product = (props: IProps) => {
         config: props.config,
       }}
     >
-      <>
-        <CheckboxProduct></CheckboxProduct>
-        <div>
-          <div>
+      <div className="product row">
+        <div className="checkbox">
+          <CheckboxProduct></CheckboxProduct>
+        </div>
+        <div className="">
+          <div className="second-section">
             <ImageProd></ImageProd>
             <div>
               <Description></Description>
+              <Brand></Brand>
               <RequestQuantity></RequestQuantity>
               <DeliveredQuantity></DeliveredQuantity>
             </div>
-            <div>
+            <div className="right-section">
               <PriceByUnit></PriceByUnit>
               <Price></Price>
             </div>
@@ -52,7 +57,7 @@ export const Product = (props: IProps) => {
           ></GenericMessage>
           <Reasons></Reasons>
         </div>
-      </>
+      </div>
     </Provider>
   );
 };

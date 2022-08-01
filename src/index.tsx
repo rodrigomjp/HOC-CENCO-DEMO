@@ -7,7 +7,7 @@ import ReactDOM from "react-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={JUMBO_THEME}>
+    <ThemeProvider theme={PARIS_THEME}>
       <App />
     </ThemeProvider>
   </React.StrictMode>,
