@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
 import { ProductContext } from "..";
+import { Checkbox } from "@library/cenco-ux-components/form";
 
-export const Checkbox = () => {
+
+export const CheckboxProduct = () => {
   const { isChecked, setIsChecked, config } = useContext(ProductContext);
   return config?.check ? (
-    <input
-      type={"checkbox"}
-      onClick={() => {
-        setIsChecked(!isChecked);
-      }}
-    />
+    <>
+    <Checkbox checked={isChecked} onChange={() => setIsChecked(!isChecked)} />
+    </>
   ) : (
     <></>
   );

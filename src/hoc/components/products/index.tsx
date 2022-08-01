@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
 import { cancelMessage } from "../../constant";
-import useProducts, { IConfig, IProduct } from "../../hooks/useProducts";
+import { IConfig, IProduct } from "../../hooks/useProducts";
 import { IProductContextProps } from "../../interfaces/interfaces";
-import { Checkbox } from "./checkbox";
+import { CheckboxProduct } from "./checkbox";
 import { DeliveredQuantity } from "./deliveredQuantity";
 import { Description } from "./description";
 import { GenericMessage, Types } from "./GenericMessage";
@@ -31,7 +31,7 @@ export const Product = (props: IProps) => {
       }}
     >
       <>
-        <Checkbox></Checkbox>
+        <CheckboxProduct></CheckboxProduct>
         <div>
           <div>
             <ImageProd></ImageProd>
